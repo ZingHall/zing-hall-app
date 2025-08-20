@@ -37,8 +37,6 @@ export function Header() {
     }
   };
 
-  console.log({ user, ready });
-
   return (
     <>
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -87,11 +85,7 @@ export function Header() {
               </>
             ) : (
               <>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => signIn("alex@example.com", "")}
-                >
+                <Button variant="outline" size="sm" onClick={handleSignup}>
                   Sign In
                 </Button>
                 <Button size="sm" onClick={() => navigate("/auth/signup")}>

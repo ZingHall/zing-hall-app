@@ -3,6 +3,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { PrivyProvider } from "@privy-io/react-auth";
 import { UserContextProvider } from "@/context/user-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Buffer } from "buffer";
+global.Buffer = Buffer;
 // import { SuiClientProvider, createNetworkConfig } from "@mysten/dapp-kit";
 // import { getFullnodeUrl } from "@mysten/sui/client";
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        buffer: "buffer",
       },
     },
     server: {
@@ -33,6 +34,12 @@ export default defineConfig(({ mode }) => {
         // tell vite to ignore watching `src-tauri`
         ignored: ["**/src-tauri/**"],
       },
+    },
+    define: {
+      global: "globalThis",
+    },
+    optimizeDeps: {
+      include: ["buffer"],
     },
     // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.
     // envPrefix: ["VITE_", "TAURI_ENV_*"],
