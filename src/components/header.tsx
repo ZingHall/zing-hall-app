@@ -6,13 +6,13 @@ import { UserMenu } from "@/components/auth/user-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useNavigate } from "react-router-dom";
 import { useCreateWallet } from "@privy-io/react-auth/extended-chains";
-import { usePrivy, useLoginWithEmail } from "@privy-io/react-auth";
+import { usePrivy } from "@privy-io/react-auth";
 import { BottomNav } from "./bottom-nav";
 import { useUserContext } from "@/context/user-context";
 
 export function Header() {
   const { searchQuery, setSearchQuery, toggleFilters } = useCreatorStore();
-  const { user: auth, signIn } = useAuthStore();
+  const { user: auth } = useAuthStore();
   const { isAuthenticated } = useUserContext();
   const navigate = useNavigate();
   const { user, login, ready, authenticated } = usePrivy();
@@ -47,7 +47,7 @@ export function Header() {
               className="text-xl md:text-2xl font-bold text-primary cursor-pointer"
               onClick={() => navigate("/")}
             >
-              fun(d)Idea
+              ZingHall
             </h2>
           </div>
 

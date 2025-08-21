@@ -1,1 +1,1 @@
-export const PREFIX = "FUND_IDEA";
+export const PREFIX = "ZING_HALL";
