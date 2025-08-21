@@ -2,7 +2,7 @@
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "zing-hall",
   "version": "0.1.0",
-  "identifier": "com.jareklin.zing-hall",
+  "identifier": "com.zing-hall.app",
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:8000",
@@ -18,7 +18,26 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": {
+        "default-src": "'self' tauri: https://auth.privy.io",
+        "script-src": "'self' tauri: https://challenges.cloudflare.com https://auth.privy.io",
+        "style-src": "'self' 'unsafe-inline' tauri: https://auth.privy.io",
+        "img-src": "'self' data: blob: tauri: https://auth.privy.io",
+        "font-src": "'self' tauri: https://auth.privy.io",
+        "object-src": "'none'",
+        "base-uri": "'self'",
+        "form-action": "'self'",
+        "frame-ancestors": "'self' https://auth.privy.io https://*.privy.io",
+        "child-src": "https://auth.privy.io https://verify.walletconnect.com https://verify.walletconnect.org",
+        "frame-src": "https://auth.privy.io https://verify.walletconnect.com https://verify.walletconnect.org https://challenges.cloudflare.com",
+        "connect-src": "'self' tauri: https://auth.privy.io wss://relay.walletconnect.com wss://relay.walletconnect.org wss://www.walletlink.org https://*.rpc.privy.systems https://explorer-api.walletconnect.com",
+        "worker-src": "'self' tauri:",
+        "manifest-src": "'self' tauri:"
+      },
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
     }
   },
   "bundle": {
@@ -32,7 +51,7 @@
       "icons/icon.ico"
     ],
     "iOS": {
-      "developmentTeam": "7QGU78RY49",
+      "developmentTeam": "7",
       "minimumSystemVersion": "14.0"
     }
   }

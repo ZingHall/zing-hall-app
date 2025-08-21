@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Filter, Heart, Search } from "lucide-react";
+import { Filter, Search } from "lucide-react";
 import { useCreatorStore } from "@/lib/store";
 import { useAuthStore } from "@/lib/auth-store";
 import { UserMenu } from "@/components/auth/user-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useNavigate } from "react-router-dom";
 import { useCreateWallet } from "@privy-io/react-auth/extended-chains";
-import { usePrivy } from "@privy-io/react-auth";
+import { usePrivy, useLoginWithEmail } from "@privy-io/react-auth";
 import { BottomNav } from "./bottom-nav";
 import { useUserContext } from "@/context/user-context";
 
@@ -97,6 +97,9 @@ export function Header() {
 
           {/* Mobile header right section */}
           <div className="flex md:hidden items-center space-x-3">
+            <Button variant="outline" size="sm" onClick={handleSignup}>
+              Sign In
+            </Button>
             <ThemeToggle />
             <UserMenu />
           </div>

@@ -1,8 +1,8 @@
 name: zing-hall
 options:
-  bundleIdPrefix: com.jareklin.zing-hall
+  bundleIdPrefix: com.zing-hall.app
   deploymentTarget:
-    iOS: 13.0
+    iOS: 14.0
 fileGroups: [../../src]
 configs:
   debug: debug
@@ -11,7 +11,8 @@ settingGroups:
   app:
     base:
       PRODUCT_NAME: zing-hall
-      PRODUCT_BUNDLE_IDENTIFIER: com.jareklin.zing-hall
+      PRODUCT_BUNDLE_IDENTIFIER: com.zing-hall.app
+      DEVELOPMENT_TEAM: 7
 targetTemplates:
   app:
     type: application
