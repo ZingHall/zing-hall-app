@@ -8,8 +8,11 @@ import Providers from "@/components/providers";
 import SignInPage from "@/pages/auth/sign-in";
 import SignUpPage from "@/pages/auth/sign-up";
 import CreatorPage from "@/pages/creator";
-import DashboardPage from "./pages/dashboard";
-import ProfilePage from "./pages/profile";
+import DashboardPage from "@/pages/dashboard";
+import ProfilePage from "@/pages/profile";
+import LoginPage from "@/pages/auth/login";
+import { ProtectedRoute } from "@/pages/protected-route";
+import AppLayout from "./pages/app-layout";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -25,14 +28,20 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<RootLayout />}>
-              <Route index element={<HomePage />} />
+              {/* Public routes */}
+              <Route path="login" element={<LoginPage />} />
               <Route path="auth">
-                <Route path="signin" element={<SignInPage />} />
-                <Route path="signup" element={<SignUpPage />} />
+                <Route path="sign-in" element={<SignInPage />} />
+                <Route path="sign-up" element={<SignUpPage />} />
               </Route>
-              <Route path="creator/:creatorId" element={<CreatorPage />} />
-              <Route path="profile" element={<ProfilePage />} />
-              <Route path="dashboard" element={<DashboardPage />} />
+              <Route element={<ProtectedRoute />}>
+                <Route element={<AppLayout />}>
+                  <Route index element={<HomePage />} />
+                  <Route path="creator/:creatorId" element={<CreatorPage />} />
+                  <Route path="profile" element={<ProfilePage />} />
+                  <Route path="dashboard" element={<DashboardPage />} />
+                </Route>
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>

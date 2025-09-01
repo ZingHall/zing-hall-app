@@ -44,10 +44,11 @@ export function Header() {
           {/* Logo - always visible */}
           <div className="flex items-center">
             <h2
-              className="text-xl md:text-2xl font-bold text-primary cursor-pointer"
+              className="text-xl md:text-2xl font-bold text-primary cursor-pointer flex gap-1 items-center justify-center"
               onClick={() => navigate("/")}
             >
-              ZingHall
+              <img src="/zing.svg" className="w-8 h-8 text-xl pt-1" />
+              Zing
             </h2>
           </div>
 
